@@ -1,0 +1,45 @@
+# macOS metadata
+.DS_Store
+
+# Editor swap/state files
+*.swp
+*.swo
+*.tmp
+*~
+
+# Local environment overrides
+.env
+.env.local
+.env.*.local
+!.env.example
+*.local
+
+# VPN client profiles and per-user overrides
+client/
+*.ovpn
+ccd/
+
+# Private keys and certificate material
+keys/
+*.key
+*.crt
+*.pem
+*.p12
+*.pfx
+*.csr
+*.der
+
+# Backups and bundled archives that may contain sensitive data
+backup/
+*.zip
+*.tar
+*.gz
+*.tgz
+*.bz2
+*.7z
+
+# Tooling artifacts containing workspace identifiers
+.specstory/
+
+# Runtime outputs
+*.log

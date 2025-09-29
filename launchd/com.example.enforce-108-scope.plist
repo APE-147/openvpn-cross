@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.example.enforce-108-scope</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/etc/openvpn/scripts/enforce-108-route-scope.sh</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key>
+  <dict>
+    <key>NetworkState</key><true/>
+  </dict>
+  <key>StartInterval</key><integer>60</integer>
+  <key>StandardOutPath</key><string>/var/log/enforce-108-scope.log</string>
+  <key>StandardErrorPath</key><string>/var/log/enforce-108-scope.log</string>
+  <key>UserName</key><string>root</string>
+  <key>WorkingDirectory</key><string>/</string>
+</dict>
+</plist>
+
