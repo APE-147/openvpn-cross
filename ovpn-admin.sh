@@ -12,6 +12,10 @@ ROUTE_SYNC_PLIST="${OVPN_ROUTE_SYNC_PLIST:-/Library/LaunchDaemons/com.example.op
 OPENVPN_BIN="${OVPN_BIN_PATH:-/opt/homebrew/sbin/openvpn}"
 STATUS_LAN_FILE="${OVPN_LAN_STATUS_FILE:-/opt/homebrew/var/log/openvpn-lan.status}"
 
+BACKHAUL_ID="$(basename "$BACKHAUL_PLIST" .plist)"
+SERVER_LAN_ID="$(basename "$SERVER_LAN_PLIST" .plist)"
+ROUTE_SYNC_ID="$(basename "$ROUTE_SYNC_PLIST" .plist)"
+
 require_var OVPN_ROUTE_APPLY
 require_var OVPN_SSH_HOST_ALIAS
 require_var OVPN_CLOUD_STATUS_PATH
@@ -69,7 +73,7 @@ show_status_cloud() {
 
 health() {
   say '=== Launchd Jobs ==='
-  for id in com.example.openvpn-backhaul com.example.openvpn-server-lan com.example.openvpn-route-sync; do
+  for id in "$BACKHAUL_ID" "$SERVER_LAN_ID" "$ROUTE_SYNC_ID"; do
     if sudo_run launchctl print "system/$id" >/dev/null 2>&1; then
       ok "$id loaded"
     else
